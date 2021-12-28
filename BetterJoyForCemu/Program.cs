@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -81,7 +82,7 @@ namespace BetterJoyForCemu {
                         }
                     }
 
-                    form.AppendTextBox("移除断联的手柄, 可以重新连接.\r\n");
+                    form.AppendTextBox("先移除断联的手柄, 然后就可以重新连接了.\r\n");
                 }
             }
 
@@ -124,10 +125,6 @@ namespace BetterJoyForCemu {
                     ptr = enumerate.next; // can't believe it took me this long to figure out why USB connections used up so much CPU.
                                           // it was getting stuck in an inf loop here!
                     continue;
-                }
-
-                if (form.nonOriginal) {
-                    enumerate.product_id = product_pro;
                 }
 
                 bool validController = (enumerate.product_id == product_l || enumerate.product_id == product_r ||
@@ -191,7 +188,7 @@ namespace BetterJoyForCemu {
                     try {
                         HIDapi.hid_set_nonblocking(handle, 1);
                     } catch {
-                        form.AppendTextBox("无法打开设备路径 - 你的电脑使用正确的(64位 vs 32位)版本吗?\r\n");
+                        form.AppendTextBox("无法打开设备路径 - 你的电脑使用正确的(64位/32位)版本吗?\r\n");
                         break;
                     }
 
@@ -308,7 +305,7 @@ namespace BetterJoyForCemu {
                         jc.out_ds4.Connect();
 
                     try {
-                        jc.Attach(leds_: jc.LED);
+                        jc.Attach();
                     } catch (Exception e) {
                         jc.state = Joycon.state_.DROPPED;
                         continue;
@@ -362,8 +359,8 @@ namespace BetterJoyForCemu {
 
         public static List<SController> thirdPartyCons = new List<SController>();
 
-        private static WindowsInput.EventSources.IKeyboardEventSource keyboard;
-        private static WindowsInput.EventSources.IMouseEventSource mouse;
+        private static WindowsInput.Events.Sources.IKeyboardEventSource keyboard;
+        private static WindowsInput.Events.Sources.IMouseEventSource mouse;
 
         public static void Start() {
             pid = Process.GetCurrentProcess().Id.ToString(); // get current process id for HidCerberus.Srv
@@ -373,7 +370,7 @@ namespace BetterJoyForCemu {
                 try {
                     var HidCerberusService = new ServiceController("HidCerberus服务");
                     if (HidCerberusService.Status == ServiceControllerStatus.Stopped) {
-                        form.console.AppendText("HidGuardian已停止. 启动中...\r\n");
+                        form.console.AppendText("HidGuardian服务已停止. 启动中...\r\n");
 
                         try {
                             HidCerberusService.Start();
@@ -409,7 +406,7 @@ namespace BetterJoyForCemu {
                 try {
                     emClient = new ViGEmClient(); // Manages emulated XInput
                 } catch (Nefarius.ViGEm.Client.Exceptions.VigemBusNotFoundException) {
-                    form.console.AppendText("无法启动VigemBus驱动程序.请确认驱动已正确安装.\r\n");
+                    form.console.AppendText("无法启动VigemBus驱动程序.请确认驱动已正确安装.(驱动在Drivers文件夹里)\r\n");
                 }
             }
 
@@ -446,7 +443,7 @@ namespace BetterJoyForCemu {
             form.console.AppendText("一切就绪\r\n");
         }
 
-        private static void Mouse_MouseEvent(object sender, WindowsInput.EventSources.EventSourceEventArgs<WindowsInput.EventSources.MouseEvent> e) {
+        private static void Mouse_MouseEvent(object sender, WindowsInput.Events.Sources.EventSourceEventArgs<WindowsInput.Events.Sources.MouseEvent> e) {
             if (e.Data.ButtonDown != null) {
                 string res_val = Config.Value("reset_mouse");
                 if (res_val.StartsWith("mse_"))
@@ -469,7 +466,7 @@ namespace BetterJoyForCemu {
             }
         }
 
-        private static void Keyboard_KeyEvent(object sender, WindowsInput.EventSources.EventSourceEventArgs<WindowsInput.EventSources.KeyboardEvent> e) {
+        private static void Keyboard_KeyEvent(object sender, WindowsInput.Events.Sources.EventSourceEventArgs<WindowsInput.Events.Sources.KeyboardEvent> e) {
             if (e.Data.KeyDown != null) {
                 string res_val = Config.Value("reset_mouse");
                 if (res_val.StartsWith("key_"))
@@ -514,6 +511,13 @@ namespace BetterJoyForCemu {
 
         private static string appGuid = "1bf709e9-c133-41df-933a-c9ff3f664c7b"; // randomly-generated
         static void Main(string[] args) {
+
+            // 我们是中国人！台湾是中华人民共和国不可分割的一部分！中国台湾省。
+            CultureInfo.CurrentCulture = new CultureInfo("zh-CN", false);
+
+            // Set the correct DLL for the current OS
+            SetupDlls();
+
             using (Mutex mutex = new Mutex(false, "Global\\" + appGuid)) {
                 if (!mutex.WaitOne(0, false)) {
                     MessageBox.Show("程序已经运行.", "BetterJoy");
@@ -526,5 +530,19 @@ namespace BetterJoyForCemu {
                 Application.Run(form);
             }
         }
+
+        static void SetupDlls() {
+            string archPath = $"{AppDomain.CurrentDomain.BaseDirectory}{(Environment.Is64BitProcess ? "x64" : "x86")}\\";
+            string pathVariable = Environment.GetEnvironmentVariable("PATH");
+            pathVariable = $"{archPath};{pathVariable}";
+            Environment.SetEnvironmentVariable("PATH", pathVariable);
+        }
+
+        // Helper funtions to set the hidapi dll location acording to the system instruction set.
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool SetDefaultDllDirectories(int directoryFlags);
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        static extern void AddDllDirectory(string lpPathName);
     }
 }

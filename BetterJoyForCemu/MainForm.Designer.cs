@@ -68,7 +68,7 @@
             this.console.Name = "console";
             this.console.ReadOnly = true;
             this.console.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.console.Size = new System.Drawing.Size(350, 175);
+            this.console.Size = new System.Drawing.Size(360, 175);
             this.console.TabIndex = 2;
             // 
             // notifyIcon
@@ -103,9 +103,9 @@
             this.version_lbl.Location = new System.Drawing.Point(281, 382);
             this.version_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.version_lbl.Name = "version_lbl";
-            this.version_lbl.Size = new System.Drawing.Size(88, 20);
+            this.version_lbl.Size = new System.Drawing.Size(79, 20);
             this.version_lbl.TabIndex = 2;
-            this.version_lbl.Text = "版本: V6.4β";
+            this.version_lbl.Text = "版本: V7.1";
             // 
             // passiveScanBox
             // 
@@ -152,7 +152,7 @@
             this.conCntrls.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.conCntrls.Name = "conCntrls";
             this.conCntrls.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.conCntrls.Size = new System.Drawing.Size(351, 141);
+            this.conCntrls.Size = new System.Drawing.Size(361, 141);
             this.conCntrls.TabIndex = 0;
             this.conCntrls.TabStop = false;
             this.conCntrls.Text = "已连接手柄";
@@ -167,6 +167,17 @@
             this.loc4.TabIndex = 7;
             this.loc4.Text = "验证连接";
             this.loc4.UseVisualStyleBackColor = true;
+            // 
+            // loc1
+            // 
+            this.loc1.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.loc1.Location = new System.Drawing.Point(8, 97);
+            this.loc1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.loc1.Name = "loc1";
+            this.loc1.Size = new System.Drawing.Size(83, 32);
+            this.loc1.TabIndex = 4;
+            this.loc1.Text = "验证连接";
+            this.loc1.UseVisualStyleBackColor = true;
             // 
             // loc3
             // 
@@ -189,17 +200,6 @@
             this.loc2.TabIndex = 5;
             this.loc2.Text = "验证连接";
             this.loc2.UseVisualStyleBackColor = true;
-            // 
-            // loc1
-            // 
-            this.loc1.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.loc1.Location = new System.Drawing.Point(8, 97);
-            this.loc1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.loc1.Name = "loc1";
-            this.loc1.Size = new System.Drawing.Size(83, 32);
-            this.loc1.TabIndex = 4;
-            this.loc1.Text = "验证连接";
-            this.loc1.UseVisualStyleBackColor = true;
             // 
             // con4
             // 
@@ -257,10 +257,10 @@
             // foldLbl
             // 
             this.foldLbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.foldLbl.Location = new System.Drawing.Point(375, 3);
+            this.foldLbl.Location = new System.Drawing.Point(385, 2);
             this.foldLbl.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.foldLbl.Name = "foldLbl";
-            this.foldLbl.Size = new System.Drawing.Size(38, 417);
+            this.foldLbl.Size = new System.Drawing.Size(38, 422);
             this.foldLbl.TabIndex = 12;
             this.foldLbl.Text = "点击展开";
             this.foldLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -300,7 +300,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(403, 345);
+            this.groupBox1.Size = new System.Drawing.Size(467, 345);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "配置";
@@ -311,14 +311,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsTable.AutoScroll = true;
             this.settingsTable.ColumnCount = 2;
-            this.settingsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.89855F));
-            this.settingsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.10145F));
+            this.settingsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.31382F));
+            this.settingsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.68618F));
             this.settingsTable.Location = new System.Drawing.Point(6, 24);
             this.settingsTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.settingsTable.Name = "settingsTable";
             this.settingsTable.RowCount = 1;
             this.settingsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.settingsTable.Size = new System.Drawing.Size(391, 304);
+            this.settingsTable.Size = new System.Drawing.Size(455, 304);
             this.settingsTable.TabIndex = 1;
             // 
             // rightPanel
@@ -328,10 +328,10 @@
             this.rightPanel.Controls.Add(this.settingsApply);
             this.rightPanel.Controls.Add(this.groupBox1);
             this.rightPanel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rightPanel.Location = new System.Drawing.Point(416, 11);
+            this.rightPanel.Location = new System.Drawing.Point(426, 11);
             this.rightPanel.Margin = new System.Windows.Forms.Padding(3, 2, 16, 2);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(412, 395);
+            this.rightPanel.Size = new System.Drawing.Size(476, 395);
             this.rightPanel.TabIndex = 11;
             this.rightPanel.Visible = false;
             // 
@@ -339,7 +339,7 @@
             // 
             this.reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.reset.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reset.Location = new System.Drawing.Point(219, 355);
+            this.reset.Location = new System.Drawing.Point(283, 355);
             this.reset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(91, 37);
@@ -364,7 +364,7 @@
             // 
             this.settingsApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsApply.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsApply.Location = new System.Drawing.Point(316, 355);
+            this.settingsApply.Location = new System.Drawing.Point(380, 355);
             this.settingsApply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.settingsApply.Name = "settingsApply";
             this.settingsApply.Size = new System.Drawing.Size(91, 37);
@@ -403,7 +403,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(835, 417);
+            this.ClientSize = new System.Drawing.Size(927, 417);
             this.Controls.Add(this.btn_reassign_open);
             this.Controls.Add(this.foldLbl);
             this.Controls.Add(this.rightPanel);

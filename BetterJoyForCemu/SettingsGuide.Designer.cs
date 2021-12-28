@@ -30,6 +30,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.settingsinfo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.git_add = new System.Windows.Forms.Button();
+            this.xiyanblog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,9 +51,9 @@
             this.label2.ForeColor = System.Drawing.Color.OrangeRed;
             this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(412, 25);
+            this.label2.Size = new System.Drawing.Size(355, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "版本编辑者: 曦颜XY  个人版本: 7.0_2021.02.25";
+            this.label2.Text = "汉化: 曦颜XY  个人版本: 9.0_2021.12.27";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // mysettings
@@ -71,17 +73,28 @@
             "晃动输入时间间隔",
             "交换AB键",
             "交换XY键",
+            "允许手柄校准",
+            "加速度传感器灵敏度",
+            "陀螺仪敏感度",
+            "摇杆1校准",
+            "死区1",
+            "摇杆2校准",
+            "死区2",
             "陀螺仪模拟",
             "陀螺仪模拟敏感度",
             "清除影响设备",
             "清除白名单",
             "使用HIDG",
-            "非原装手柄支持",
             "开启Home键LED灯",
-            "Joycon使用渐进灯光",
+            "使用渐进灯光",
             "陀螺仪使用Joycons或鼠标",
+            "使用过滤的IMU",
+            "AHRS_beta",
             "鼠标模拟陀螺仪敏感度X轴",
-			"鼠标模拟陀螺仪敏感度Y轴",
+            "鼠标模拟陀螺仪敏感度Y轴",
+            "摇杆陀螺仪敏感度X轴",
+            "摇杆陀螺仪敏感度Y轴",
+            "摇杆范围缩小参数",
             "通过按住或切换使用陀螺仪",
             "鼠标左陀螺仪",
             "鼠标拖动",
@@ -90,10 +103,12 @@
             "自动断开连接",
             "不使用时自动断开连接",
             "长按Home键断开连接",
+            "双击改变Joycons方向",
+            "不重复连接Joycons",
             "调试类型"});
             this.mysettings.Location = new System.Drawing.Point(126, 83);
             this.mysettings.Name = "mysettings";
-            this.mysettings.Size = new System.Drawing.Size(299, 28);
+            this.mysettings.Size = new System.Drawing.Size(346, 28);
             this.mysettings.TabIndex = 3;
             this.mysettings.SelectedIndexChanged += new System.EventHandler(this.mysettings_SelectedIndexChanged);
             // 
@@ -114,7 +129,7 @@
             this.settingsinfo.Name = "settingsinfo";
             this.settingsinfo.ReadOnly = true;
             this.settingsinfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.settingsinfo.Size = new System.Drawing.Size(299, 148);
+            this.settingsinfo.Size = new System.Drawing.Size(346, 148);
             this.settingsinfo.TabIndex = 5;
             // 
             // label4
@@ -122,15 +137,37 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(22, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(403, 20);
+            this.label4.Size = new System.Drawing.Size(423, 20);
             this.label4.TabIndex = 6;
-            this.label4.Text = "说明：原作者GitHub搜Davidobot，版权归他(除部分代码)";
+            this.label4.Text = "说明：原作者GitHub搜Davidobot，本人只负责国内本地化。";
+            // 
+            // git_add
+            // 
+            this.git_add.Location = new System.Drawing.Point(129, 292);
+            this.git_add.Name = "git_add";
+            this.git_add.Size = new System.Drawing.Size(110, 29);
+            this.git_add.TabIndex = 7;
+            this.git_add.Text = "浏览开源代码";
+            this.git_add.UseVisualStyleBackColor = true;
+            this.git_add.Click += new System.EventHandler(this.git_add_Click);
+            // 
+            // xiyanblog
+            // 
+            this.xiyanblog.Location = new System.Drawing.Point(363, 292);
+            this.xiyanblog.Name = "xiyanblog";
+            this.xiyanblog.Size = new System.Drawing.Size(109, 29);
+            this.xiyanblog.TabIndex = 8;
+            this.xiyanblog.Text = "访问曦颜博客";
+            this.xiyanblog.UseVisualStyleBackColor = true;
+            this.xiyanblog.Click += new System.EventHandler(this.xiyanblog_Click);
             // 
             // SettingsGuide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 312);
+            this.ClientSize = new System.Drawing.Size(508, 354);
+            this.Controls.Add(this.xiyanblog);
+            this.Controls.Add(this.git_add);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.settingsinfo);
             this.Controls.Add(this.label3);
@@ -158,5 +195,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox settingsinfo;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button git_add;
+        private System.Windows.Forms.Button xiyanblog;
     }
 }

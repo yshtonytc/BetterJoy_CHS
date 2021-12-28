@@ -11,8 +11,8 @@ using System.Windows.Forms;
 
 namespace BetterJoyForCemu {
     public partial class Reassign : Form {
-        private WindowsInput.EventSources.IKeyboardEventSource keyboard;
-        private WindowsInput.EventSources.IMouseEventSource mouse;
+        private WindowsInput.Events.Sources.IKeyboardEventSource keyboard;
+        private WindowsInput.Events.Sources.IMouseEventSource mouse;
 
         ContextMenuStrip menu_joy_buttons = new ContextMenuStrip();
 
@@ -33,7 +33,7 @@ namespace BetterJoyForCemu {
                 c.Tag = c.Name.Substring(4);
                 GetPrettyName(c);
 
-                tip_reassign.SetToolTip(c, "左键检测输入.\r\n中键清理默认.\r\n右键查看更多选项.");
+                tip_reassign.SetToolTip(c, "左键检测输入.\r\n中键清理并恢复默认.\r\n右键查看更多选项.");
                 c.MouseDown += Remap;
                 c.Menu = menu_joy_buttons;
                 c.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -73,7 +73,7 @@ namespace BetterJoyForCemu {
             mouse.MouseEvent += Mouse_MouseEvent;
         }
 
-        private void Mouse_MouseEvent(object sender, WindowsInput.EventSources.EventSourceEventArgs<WindowsInput.EventSources.MouseEvent> e) {
+        private void Mouse_MouseEvent(object sender, WindowsInput.Events.Sources.EventSourceEventArgs<WindowsInput.Events.Sources.MouseEvent> e) {
             if (curAssignment != null && e.Data.ButtonDown != null) {
                 Config.SetValue((string)curAssignment.Tag, "mse_" + ((int)e.Data.ButtonDown.Button));
                 AsyncPrettyName(curAssignment);
@@ -82,7 +82,7 @@ namespace BetterJoyForCemu {
             }
         }
 
-        private void Keyboard_KeyEvent(object sender, WindowsInput.EventSources.EventSourceEventArgs<WindowsInput.EventSources.KeyboardEvent> e) {
+        private void Keyboard_KeyEvent(object sender, WindowsInput.Events.Sources.EventSourceEventArgs<WindowsInput.Events.Sources.KeyboardEvent> e) {
             if (curAssignment != null && e.Data.KeyDown != null) {
                 Config.SetValue((string)curAssignment.Tag, "key_" + ((int)e.Data.KeyDown.Key));
                 AsyncPrettyName(curAssignment);
@@ -122,7 +122,6 @@ namespace BetterJoyForCemu {
 
         private void btn_apply_Click(object sender, EventArgs e) {
             Config.Save();
-            Close();
         }
 
         private void btn_close_Click(object sender, EventArgs e) {

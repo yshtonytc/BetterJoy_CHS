@@ -1,6 +1,6 @@
 <div align=center><img src="https://oscimg.oschina.net/oscnet/up-1xhr7zmon7atri87vn4j7fcouoltlpvh"/></div>
 
-# BetterJoy v6.4β 非官方自定版本 仅提供支持64位操作系统
+# BetterJoy v7.0 非官方自定版本 仅提供支持64位操作系统
 
 提供任天堂Switch Pro手柄，Joycons，Switch SNES手柄与cemu(搭配Cemuhook), Citra，Dolphin，Yuzu以及系统范围通用的XInput支持。
 
@@ -8,7 +8,7 @@
 
 # 原作者: [Davidobot](https://github.com/Davidobot)
 
-## 汉化作者(*^▽^*)： [曦颜XY(xiyanxy)](https://weibo.com/xiyan1996)
+## 汉化作者(*^▽^*)： [曦颜博客 - 曦颜XY(xiyanxy)](https://vaimibao.top)
 
 ##### 捐赠
 
@@ -16,7 +16,7 @@ Cemu汉化插件更新不易，给作者加个🍗，谢谢
 
 | 微信| 支付宝 |
 | - | - |
-| ![wechat](img/微信.jpg) | ![alipay](img/支付宝.jpg) |
+| ![wechat](img/wechat.jpg) | ![alipay](img/alipay.jpg) |
 
 #### 作者提醒
 感谢您使用我的软件以及给予我得到的所有建设性反馈。很久以前我开始写这个项目时起，我就学到了很多有关编程和软件开发的知识。我没有太多的时间来维护这个项目，但是如果出现程序BUGs，我会努力尝试修复错误。也感谢您在修复BUGs方面的耐心等待！
@@ -29,11 +29,13 @@ Cemu汉化插件更新不易，给作者加个🍗，谢谢
 # 下载
 去看看 [Releases栏](https://github.com/xiyanxy/BetterJoy_CHS/releases/)
 
-# 如何使用
+# 使用教程
 1. 安装驱动
     1. 阅读README.md
-    1. 运行 *Drivers/ViGEmBus_Setup_1.16.116.exe*
+    1. 运行 *Drivers/ViGEmBusSetup_x64.msi(按需安装32位的驱动ViGEmBusSetup_x32.msi)*
+    1. 按需重启电脑
 2. 运行 *BetterJoyForCemu.exe*
+    1. 若你的键盘/鼠标映射出问题就以管理员模式启动BetterJoy
 3. 电脑连接你的手柄(支持蓝牙和USB两种模式)
 4. 启动Cemu并确保CemuHook设置已选择手柄.
     1. 你如果使用的是Joycons, CemuHook会检测到俩手柄 - 每个都有所有的按钮，但是选择其中一个只是选择使用哪只手来控制陀螺仪。

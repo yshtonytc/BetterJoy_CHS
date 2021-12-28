@@ -102,8 +102,8 @@
     <Reference Include="JetBrains.Annotations, Version=2020.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.2020.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
-    <Reference Include="Nefarius.ViGEm.Client, Version=1.17.175.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nefarius.ViGEm.Client.1.17.175\lib\net452\Nefarius.ViGEm.Client.dll</HintPath>
+    <Reference Include="Nefarius.ViGEm.Client, Version=1.17.178.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nefarius.ViGEm.Client.1.17.178\lib\net452\Nefarius.ViGEm.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -119,8 +119,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsInput, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsInput.6.1.0\lib\net461\WindowsInput.dll</HintPath>
+    <Reference Include="WindowsInput, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsInput.6.3.0\lib\net461\WindowsInput.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -165,7 +165,7 @@
     <Compile Include="UpdServer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="! Install the drivers in the Drivers folder">
+    <None Include="! 使用前必须先在Drivers文件夹里安装对应的驱动">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="App.config">
@@ -186,6 +186,12 @@
     <None Include="Drivers\HIDGuardian\_drivers\HidGuardian\HidGuardian.sys">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Drivers\ViGEmBusSetup_x64.msi">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\ViGEmBusSetup_x86.msi">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -238,13 +244,13 @@
     <Content Include="Drivers\README.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Drivers\ViGEmBus_Setup_1.16.116.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Icons\snes.png" />
     <None Include="Properties\app.manifest" />
     <Content Include="Icons\betterjoyforcemu_icon.ico" />
-    <Content Include="hidapi.dll">
+    <Content Include="x86\hidapi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\hidapi.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\cross.png" />
