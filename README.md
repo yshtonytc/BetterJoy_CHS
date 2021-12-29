@@ -16,7 +16,7 @@ Cemu汉化插件更新不易，给作者加个🍗，谢谢
 
 | 微信| 支付宝 |
 | - | - |
-| ![wechat](img/wechat.jpg) | ![alipay](img/alipay.jpg) |
+| ![wechat](https://oscimg.oschina.net/oscnet/up-1c709070cf9798fd66cf556cbad4d31ce9d.png) | ![alipay](https://oscimg.oschina.net/oscnet/up-b0a2c8f306dc67b43ba23832fee150e7e87.png) |
 
 #### 作者提醒
 感谢您使用我的软件以及给予我得到的所有建设性反馈。很久以前我开始写这个项目时起，我就学到了很多有关编程和软件开发的知识。我没有太多的时间来维护这个项目，但是如果出现程序BUGs，我会努力尝试修复错误。也感谢您在修复BUGs方面的耐心等待！
@@ -24,7 +24,7 @@ Cemu汉化插件更新不易，给作者加个🍗，谢谢
 这真是一段疯狂的旅程，在GitHub上有近11万的官方下载，也许在其它地方还会有更多。我认为这个项目给予我到目前为止的两个工作的帮助，所以我很自豪。
 
 ### 截图
-![Example](https://wx3.sinaimg.cn/mw690/006advZlly1gjbxvhzcqlj30m10ou4am.jpg)
+![Example](https://oscimg.oschina.net/oscnet/up-30cce2368c12048543f01627ad519c75957.png)
 
 # 下载
 去看看 [Releases栏](https://github.com/xiyanxy/BetterJoy_CHS/releases/)
